@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import logo from "../../../assets/bag_images/bagicon.jpg";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import PrimaryButton from "../../../Components/Button/PrimaryButton";
 
@@ -22,10 +23,18 @@ const Navbar = () => {
     <header className="text-gray-900 body-font shadow-sm">
       <div className=" mx-auto flex flex-wrap py-5 px-20 flex-col md:flex-row items-center">
         <Link
+          rel="noopener noreferrer"
           to="/"
-          className="flex title-font font-medium items-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-lime-500 mb-4 md:mb-0"
+          aria-label="Back to homepage"
+          className="flex items-center px-2 py-0"
         >
-          <span className="ml-3 text-2xl font-bold ">Used-Product</span>
+          <img src={logo} alt="" style={{ height: "40px" }} />
+        </Link>
+        <Link
+          to="/"
+          className="flex title-font font-medium items-center text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-blue-500 mb-4 md:mb-0"
+        >
+          <span className="ml-3 text-2xl font-bold ">BestBags</span>
         </Link>
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
           {user?.email ? (

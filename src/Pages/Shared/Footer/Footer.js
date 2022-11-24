@@ -1,20 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../../assets/logo/logo.jpg";
+import logo from "../../../assets/bag_images/bagicon.jpg";
 import "./footer.css";
 
 const quickLinks01 = [
   {
     path: "#",
-    display: "Marketing",
+    display: "Briefcases",
   },
   {
     path: "#",
-    display: "Analytics",
+    display: "Handbags",
   },
   {
     path: "#",
-    display: "Commerce",
+    display: "Backpacks",
   },
 ];
 
@@ -55,24 +55,25 @@ const Footer = () => {
       <div className="container mx-auto justify-items-center text-center">
         <div className="footer__wrapper lg:flex-row sm:flex-col items-center">
           <div className="footer__logo">
-            <Link
-              rel="noopener noreferrer"
-              to="/"
-              aria-label="Back to homepage"
-              className="flex justify-center px-1 lg:mr-4 pb-5"
-            >
-              <img src={logo} alt="" style={{ height: "40px" }} />
-            </Link>
-            <h2>USED-PRODUCTS</h2>
-            <p className="description pt-2">Creating Identity</p>
+            <div className="flex justify-center">
+              <Link
+                rel="noopener noreferrer"
+                to="/"
+                aria-label="Back to homepage"
+                className=" px-1 lg:mr-1 pb-5"
+              >
+                <img src={logo} alt="" style={{ height: "40px" }} />
+              </Link>
+              <h2 className="text-2xl">BestBags</h2>
+            </div>
+            <p className="description pt-2">Your Best Choice</p>
             <p className="small__text description">
-              You need to market your online store in unique ways to attract
-              customers and increase sales.
+              You need unique your identity with attractive way of selective fashion.
             </p>
           </div>
 
           <div className="footer__quick-links">
-            <h3 className="quick__links-title">Solutions</h3>
+            <h3 className="quick__links-title">Products</h3>
             <ul className="quick__links">
               {quickLinks01.map((item, index) => (
                 <li className="quick__link-item" key={index}>
