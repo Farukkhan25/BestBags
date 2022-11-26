@@ -43,6 +43,10 @@ const AuthProvider = ({ children }) => {
     return sendEmailVerification(auth.currentUser);
   };
 
+  const providerLogin = (provider) => {
+    setLoading(true);
+    return signInWithPopup(auth, provider);
+  };
   // 4. Google Signin
   const signInWithGoogle = () => {
     setLoading(true);
@@ -92,6 +96,7 @@ const AuthProvider = ({ children }) => {
     resetPassword,
     loading,
     setLoading,
+    providerLogin,
   };
 
   return (

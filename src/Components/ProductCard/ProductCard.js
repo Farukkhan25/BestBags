@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
     <div>
       <div className="card card-compact w-full bg-base-100 shadow-xl">
         <figure>
-          <img src={image} alt="" />
+          <img src={image} alt="" className="w-full object-cover h-96"/>
         </figure>
         <div className="card-body">
           <h2 className="card-title mx-auto text-blue-700">{productName}</h2>
@@ -62,7 +62,7 @@ const ProductCard = ({ product }) => {
               </p>
               <p>
                 {" "}
-                <span className="text-bold  text-red-600">Years Used: </span>
+                <span className="text-bold  text-red-600">Product Used: </span>
                 {yearsUsed}
               </p>
             </div>

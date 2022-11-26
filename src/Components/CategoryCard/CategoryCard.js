@@ -10,8 +10,12 @@ const CategoryCard = ({ category }) => {
           <div className="card card-compact w-96  text-center">
             <figure className="h-56">
               <div className="avatar">
-                <div className="h-52 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                  <img src={image} alt="" />
+                <div className="h-52 w-full rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img
+                    src={image}
+                    alt=""
+                    // className="w-full h-72 object-fit lg:h-64"
+                  />
                 </div>
               </div>
             </figure>

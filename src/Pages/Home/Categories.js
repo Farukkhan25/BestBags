@@ -18,55 +18,14 @@ const Categories = () => {
         <h3 className="text-sky-600 text-xl md:text-3xl font-bold">
           Categories
         </h3>
-        <div className="grid gap-6 gap-y-16 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center py-16 text-center">
+        <div className="grid gap-6 gap-y-16 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-16 text-center justify-center">
           {categories.map((category) => (
             <CategoryCard
               key={category._id}
               category={category}
             ></CategoryCard>
           ))}
-          {/* <Link to="/backpacks">
-            <div className="card card-compact w-96  text-center">
-              <figure className="h-56">
-                <div className="avatar">
-                  <div className="h-52 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                    <img src={cate1} alt="" />
-                  </div>
-                </div>
-              </figure>
-              <div className="card-body text-center mx-auto">
-                <h2 className="card-title">Backpacks</h2>
-              </div>
-            </div>
-          </Link>
-          <Link to="/briefcases">
-            <div className="card card-compact w-96 ">
-              <figure className="h-56">
-                <div className="avatar">
-                  <div className="h-52 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                    <img src={cate2} alt="" />
-                  </div>
-                </div>
-              </figure>
-              <div className="card-body mx-auto">
-                <h2 className="card-title">Briefcases</h2>
-              </div>
-            </div>
-          </Link>
-          <Link to="/handbags">
-            <div className="card card-compact w-96">
-              <figure className="h-56">
-                <div className="avatar">
-                  <div className="h-52 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                    <img src={cate3} alt="" />
-                  </div>
-                </div>
-              </figure>
-              <div className="card-body mx-auto">
-                <h2 className="card-title">Handbags</h2>
-              </div>
-            </div>
-          </Link> */}
+          
         </div>
       </div>
     );
