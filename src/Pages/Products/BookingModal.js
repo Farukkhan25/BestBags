@@ -1,11 +1,43 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import toast from "react-hot-toast";
+import { saveBookings } from "../../api/bookings";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const BookingModal = ({ confirmProduct }) => {
-  const { productName, resalePrice } =
-    confirmProduct;
+  const { productName, resalePrice, sellerEmail } = confirmProduct;
 
-  const { user } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
+    
+    // const [bookingData, setBookingData] = useState({
+         
+    // });  
+    
+    const handleBooking = (event) => {
+     event.preventDefault();
+        const form = event.target;
+        const phone = form.phone.value;
+        const location = form.location.value;
+
+        const bookingData = {
+          name: user.displayName,
+          email: user.email,
+          phone,
+          location,
+          productName,
+          resalePrice,
+          sellerEmail,
+        };
+   console.log(bookingData);
+   saveBookings(bookingData)
+     .then((data) => {
+       console.log(data);
+         toast.success("Booking success!");
+        
+     })
+     .catch((error) => {
+       toast.error(error.message);
+     });
+ };
 
   return (
     <>
@@ -25,7 +57,7 @@ const BookingModal = ({ confirmProduct }) => {
             USD {resalePrice}
           </h3>
           <form
-            // onSubmit={handleBooking}
+            onSubmit={handleBooking}
             className="grid grid-cols-1 gap-3 mt-10"
           >
             <input
