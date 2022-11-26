@@ -6,6 +6,9 @@ import {
 } from "@heroicons/react/24/solid";
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import PrimaryButton from '../Button/PrimaryButton';
+import UserMenu from './UserMenu';
+import HostMenu from './HostMenu';
+import AdminMenu from './AdminMenu';
 
 const Sidebar = ({ role, loading }) => {
   const { user, logout } = useContext(AuthContext);
@@ -21,7 +24,7 @@ const Sidebar = ({ role, loading }) => {
       <div className="bg-gray-100 text-gray-800 flex justify-between md:hidden">
         <div>
           <div className="block cursor-pointer p-4 font-bold">
-            <Link to="/">AirCnC</Link>
+            <Link to="/">BestBags</Link>
           </div>
         </div>
 
@@ -69,11 +72,11 @@ const Sidebar = ({ role, loading }) => {
           {/* Nav Items */}
           <div className="flex flex-col justify-between flex-1 mt-6">
             <nav>
-              {/* {role && role !== "request" ? (
+              {role && role !== "request" ? (
                 <>{role === "admin" ? <AdminMenu /> : <HostMenu />} </>
               ) : (
                 <UserMenu />
-              )} */}
+              )}
             </nav>
           </div>
         </div>

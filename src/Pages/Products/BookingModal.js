@@ -4,7 +4,7 @@ import { saveBookings } from "../../api/bookings";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const BookingModal = ({ confirmProduct }) => {
-  const { productName, resalePrice, sellerEmail } = confirmProduct;
+  const { productName, resalePrice, sellerEmail, image } = confirmProduct;
 
     const { user } = useContext(AuthContext);
     
@@ -20,12 +20,14 @@ const BookingModal = ({ confirmProduct }) => {
 
         const bookingData = {
           name: user.displayName,
-          email: user.email,
+          buyerEmail: user.email,
+          // buyerImage: user.photoURL,
           phone,
           location,
           productName,
           resalePrice,
           sellerEmail,
+          image,
         };
    console.log(bookingData);
    saveBookings(bookingData)

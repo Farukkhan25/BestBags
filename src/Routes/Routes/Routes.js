@@ -3,6 +3,7 @@ import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import MyBooking from "../../Pages/Dashboard/MyBooking";
 import Welcome from "../../Pages/Dashboard/Welcome";
+import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    // errorElement: <DisplayError></DisplayError>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
         element: <Welcome></Welcome>,
       },
       {
-        path: "/dashboard/mybookings",
+        path: "my-orders",
         element: <MyBooking></MyBooking>,
       },
     ],
