@@ -1,7 +1,7 @@
 import React from "react";
 import PrimaryButton from "../Button/PrimaryButton";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ productInfo, setConfirmProduct }) => {
   const {
     _id,
     productName,
@@ -18,13 +18,13 @@ const ProductCard = ({ product }) => {
     Description,
     postedTime,
     sellerEmail,
-  } = product;
+  } = productInfo;
 
   return (
     <div>
       <div className="card card-compact w-full bg-base-100 shadow-xl">
         <figure>
-          <img src={image} alt="" className="w-full object-cover h-96"/>
+          <img src={image} alt="" className="w-full object-cover h-96" />
         </figure>
         <div className="card-body">
           <h2 className="card-title mx-auto text-blue-700">{productName}</h2>
@@ -96,7 +96,15 @@ const ProductCard = ({ product }) => {
             </div>
           </div>
           <div className="card-actions justify-end">
-            <PrimaryButton>Book Now</PrimaryButton>
+            {/* <PrimaryButton> */}
+            <label
+              htmlFor="booking-modal"
+              className="px-2 rounded-lg hover:text-gray-100 hover:bg-purple-500 text-white bg-gradient-to-r from-blue-500 to-sky-500 text-white btn"
+              onClick={() => setConfirmProduct(productInfo)}
+            >
+              Book now
+            </label>
+            {/* </PrimaryButton> */}
           </div>
         </div>
       </div>
