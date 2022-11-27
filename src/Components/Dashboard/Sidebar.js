@@ -7,8 +7,8 @@ import {
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import PrimaryButton from '../Button/PrimaryButton';
 import UserMenu from './UserMenu';
-import HostMenu from './HostMenu';
 import AdminMenu from './AdminMenu';
+import SellerMenu from './SellerMenu';
 
 const Sidebar = ({ role, loading }) => {
   const { user, logout } = useContext(AuthContext);
@@ -65,6 +65,9 @@ const Sidebar = ({ role, loading }) => {
                 <p className="mx-2 mt-1 text-sm font-medium text-gray-600  hover:underline">
                   {user?.email}
                 </p>
+                <p className="mx-2 mt-1 text-sm font-medium text-gray-600  hover:underline">
+                  {role}
+                </p>
               </Link>
             </div>
           </div>
@@ -72,10 +75,12 @@ const Sidebar = ({ role, loading }) => {
           {/* Nav Items */}
           <div className="flex flex-col justify-between flex-1 mt-6">
             <nav>
-              {role && role !== "request" ? (
-                <>{role === "admin" ? <AdminMenu /> : <HostMenu />} </>
+              {role === "admin" ? (
+                <AdminMenu></AdminMenu>
+              ) : role === "seller" ? (
+                <SellerMenu></SellerMenu>
               ) : (
-                <UserMenu />
+                <UserMenu></UserMenu>
               )}
             </nav>
           </div>

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { addUser } from '../../api/user';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const SignUp = () => {
@@ -12,18 +13,29 @@ const SignUp = () => {
     const handleRegister = (event) => {
       event.preventDefault();
       const form = event.target;
+      const name = form.name.value;
       const email = form.email.value;
       const password = form.password.value;
+      const role = form.role.value;
+
+      const addNewUser = {
+        name,
+        email,
+        role
+      }
+      
 
       createUser(email, password)
         .then((result) => {
           const user = result.user;
           console.log(user);
           form.reset();
+          addUser(addNewUser);
           toast.success("Registration successful !");
           navigate(from, { replace: true });
         })
         .catch((err) => console.error(err));
+      console.log( email, password, role);
     };
 
     // useTitle("SignUp");
@@ -35,7 +47,7 @@ const SignUp = () => {
             <img
               className="w-3/4"
               src="https://img.freepik.com/free-vector/secure-login-concept-illustration_114360-4320.jpg?w=826&t=st=1666860644~exp=1666861244~hmac=6d992bd520b859c5a64d13102afca25b86fb8afa9423a6319aa8d1d8b9bec8e9"
-            //   class="w-100 rounded-4 shadow-4"
+              //   class="w-100 rounded-4 shadow-4"
               alt=""
             />
           </div>
@@ -76,6 +88,30 @@ const SignUp = () => {
                   className="input input-bordered"
                   required
                 />
+              </div>
+              <div className="form-control">
+                <label className="label cursor-pointer">
+                  <span className="label-text">User</span>
+                  <input
+                    type="radio"
+                    name="role"
+                    value="user"
+                    className="radio checked:bg-red-500"
+                   defaultChecked
+                  />
+                </label>
+              </div>
+              <div className="form-control">
+                <label className="label cursor-pointer">
+                  <span className="label-text">Seller</span>
+                  <input
+                    type="radio"
+                    name="role"
+                    value='seller'
+                    className="radio checked:bg-blue-500"
+                    // checked
+                  />
+                </label>
               </div>
               <div className="form-control mt-6">
                 <input

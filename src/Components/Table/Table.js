@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PrimaryButton from "../Button/PrimaryButton";
 
 const Table = ({ booking }) => {
   const { productName, resalePrice, image, _id } = booking;
@@ -28,7 +29,8 @@ const Table = ({ booking }) => {
         <p className="text-gray-900 whitespace-no-wrap">
           {/* {resalePrice && !booking.paid && ( */}
           <Link to={`/dashboard/payment/${_id}`}>
-            <button className="btn btn-primary btn-sm">Pay</button>
+            
+            <PrimaryButton>Pay Now</PrimaryButton>
           </Link>
           {/* )}
           {resalePrice && booking.paid && (

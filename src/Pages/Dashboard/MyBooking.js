@@ -41,31 +41,31 @@ const MyBookings = () => {
                     <tr>
                       <th
                         scope="col"
-                        className="px-5 py-3 bg-gray-200  border-b border-gray-200 text-gray-800 md:text-xl  text-left text-sm uppercase font-normal"
+                        className="px-5 py-3 bg-gray-200  border-b border-gray-200 text-blue-800  md:text-xl  text-left text-sm uppercase font-semibold"
                       >
                         Image
                       </th>
                       <th
                         scope="col"
-                        className="px-5 py-3 bg-gray-200 border-b border-gray-200 text-gray-800 md:text-xl  text-left text-sm uppercase font-normal"
+                        className="px-5 py-3 bg-gray-200 border-b border-gray-200 text-blue-800  md:text-xl  text-left text-sm uppercase font-semibold"
                       >
                         Title
                       </th>
                       <th
                         scope="col"
-                        className="px-5 py-3 bg-gray-200  border-b border-gray-200 text-gray-800 md:text-xl  text-left text-sm uppercase font-normal"
+                        className="px-5 py-3 bg-gray-200  border-b border-gray-200 text-blue-800  md:text-xl  text-left text-sm uppercase font-semibold"
                       >
                         Price
                       </th>
                       <th
                         scope="col"
-                        className="px-5 py-3 bg-gray-200  border-b border-gray-200 text-gray-800 md:text-xl  text-left text-sm uppercase font-normal"
+                        className="px-5 py-3 bg-gray-200  border-b border-gray-200 text-blue-800  md:text-xl  text-left text-sm uppercase font-semibold"
                       >
                         Payment
                       </th>
                       <th
                         scope="col"
-                        className="px-5 py-3 bg-gray-200  border-b border-gray-200 text-gray-800 md:text-xl  text-left text-sm uppercase font-normal"
+                        className="px-5 py-3 bg-gray-200  border-b border-gray-200 text-blue-800  md:text-xl  text-left text-sm uppercase font-semibold"
                       >
                         Action
                       </th>
