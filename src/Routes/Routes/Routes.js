@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         path: "/categories/:id",
         element: <Products></Products>,
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/categories/${params.id}`),
+          fetch(`https://bestbags-server.vercel.app/categories/${params.id}`),
       },
 
       {
@@ -94,7 +94,7 @@ const router = createBrowserRouter([
         path: "payment/:id",
         element: <Payment></Payment>,
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/bookings/${params.id}`),
+          fetch(`https://bestbags-server.vercel.app/bookings/${params.id}`),
       },
     ],
   },

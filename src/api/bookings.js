@@ -1,5 +1,5 @@
 export const saveBookings = async (booking) => {
-  const url = "http://localhost:8000/bookings";
+  const url = "https://bestbags-server.vercel.app/bookings";
 
   const response = await fetch(url, {
     method: "POST",
@@ -14,7 +14,7 @@ export const saveBookings = async (booking) => {
 };
 
 export const getAllBookingsByEmail = async (email) => {
-  const url = `http://localhost:8000/bookings?email=${email}`;
+  const url = `https://bestbags-server.vercel.app/bookings?email=${email}`;
 
   const response = await fetch(url);
   const data = await response.json();
@@ -22,7 +22,7 @@ export const getAllBookingsByEmail = async (email) => {
 };
 
 export const getAllBookings = async () => {
-  const url = "http://localhost:8000/bookings";
+  const url = "https://bestbags-server.vercel.app/bookings";
 
   const response = await fetch(url);
   const data = await response.json();

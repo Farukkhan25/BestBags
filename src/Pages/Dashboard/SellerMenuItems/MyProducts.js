@@ -11,7 +11,7 @@ const MyProducts = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:8000/myproducts?email=${user?.email}`)
+    fetch(`https://bestbags-server.vercel.app/myproducts?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyProducts(data);
@@ -29,7 +29,7 @@ const MyProducts = () => {
       "Are you sure, you want to Delete this product?"
     );
     if (proceed) {
-      fetch(`http://localhost:8000/myproducts/${id}`, {
+      fetch(`https://bestbags-server.vercel.app/myproducts/${id}`, {
         method: "DELETE",
         //   headers: {
         //     authorization: `Bearer ${localStorage.getItem("bestbags-token")}`,

@@ -61,7 +61,7 @@ const Header = () => {
                 </button>
 
                 {isDropdownOpen && (
-                  <div className="absolute right-0 z-20 w-48 py-2 mt-2 bg-white rounded-md shadow-xl ">
+                  <div className="absolute right-0 z-20 w-48 py-2 mt-2 bg-white rounded-md shadow-xl pl-2">
                     <Link
                       to="/dashboard"
                       className="flex items-center px-3 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform  hover:bg-gray-100 "
