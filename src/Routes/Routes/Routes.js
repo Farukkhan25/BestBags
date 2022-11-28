@@ -1,10 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
+import Blog from "../../Pages/Blog/Blog";
 import AllBuyers from "../../Pages/Dashboard/AdminMenu/AllBuyers";
 import AllSellers from "../../Pages/Dashboard/AdminMenu/AllSellers";
 import ReportedItems from "../../Pages/Dashboard/AdminMenu/ReportedItems";
 import MyBooking from "../../Pages/Dashboard/MyBooking";
+import Payment from "../../Pages/Dashboard/Payment";
 import AddProduct from "../../Pages/Dashboard/SellerMenuItems/AddProduct";
 import MyBuyers from "../../Pages/Dashboard/SellerMenuItems/MyBuyers";
 import MyProducts from "../../Pages/Dashboard/SellerMenuItems/MyProducts";
@@ -41,6 +43,10 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <SignUp></SignUp>,
       },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
     ],
   },
   {
@@ -50,6 +56,7 @@ const router = createBrowserRouter([
       <DashboardLayout></DashboardLayout>
       // </PrivateRoute>
     ),
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "",
@@ -82,6 +89,12 @@ const router = createBrowserRouter([
       {
         path: "reported-items",
         element: <ReportedItems></ReportedItems>,
+      },
+      {
+        path: "payment/:id",
+        element: <Payment></Payment>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:8000/bookings/${params.id}`),
       },
     ],
   },

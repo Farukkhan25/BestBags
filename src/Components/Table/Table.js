@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PrimaryButton from "../Button/PrimaryButton";
 
 const Table = ({ booking }) => {
-  const { productName, resalePrice, image, _id } = booking;
+  const { productName, resalePrice, image, _id, paid } = booking;
   return (
     <tr key={booking._id}>
       <td className="px-5 py-5 border-b border-gray-200 bg-sky-200 md:text-xl text-sm">
@@ -27,15 +27,15 @@ const Table = ({ booking }) => {
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-sky-200 md:text-xl text-sm">
         <p className="text-gray-900 whitespace-no-wrap">
-          {/* {resalePrice && !booking.paid && ( */}
-          <Link to={`/dashboard/payment/${_id}`}>
+          {resalePrice && !paid && (
+            <Link to={`/dashboard/payment/${_id}`}>
             
-            <PrimaryButton>Pay Now</PrimaryButton>
-          </Link>
-          {/* )}
-          {resalePrice && booking.paid && (
+              <PrimaryButton>Pay Now</PrimaryButton>
+            </Link>
+          )}
+          {resalePrice && paid && (
             <span className="text-green-500">Paid</span>
-          )} */}
+          )} 
         </p>
       </td>
 

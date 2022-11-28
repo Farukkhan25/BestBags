@@ -5,7 +5,7 @@ import logo from "../../../assets/bag_images/bagicon.jpg";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import PrimaryButton from "../../../Components/Button/PrimaryButton";
 
-const Navbar = () => {
+const Header = () => {
   const { user, logout
 } = useContext(AuthContext);
   // const logout = useContext(AuthContext);
@@ -37,12 +37,18 @@ const Navbar = () => {
           <span className="ml-3 text-2xl font-bold ">BestBags</span>
         </Link>
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
+          <Link
+            to="/blog"
+            className=" hover:text-green-600 text-lg font-bold text-sky-700"
+          >
+            <span >Blogs</span>
+          </Link>
           {user?.email ? (
             <>
               <div className="relative inline-block ">
                 <button
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="relative z-10 block p-2 text-gray-700 bg-white border border-transparent rounded-md focus:border-blue-500 focus:ring-opacity-40  focus:ring-blue-300  focus:ring  focus:outline-none"
+                  className="relative z-10 block p-2 text-gray-700 bg-white border border-sky-500 rounded-lg focus:border-blue-500 focus:ring-opacity-40  focus:ring-blue-300  focus:ring  focus:outline-none"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +109,10 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link to="/login" className="mr-5 hover:text-green-600">
+              <Link
+                to="/login"
+                className="mx-5 hover:text-green-600 text-lg font-bold text-sky-700"
+              >
                 Login
               </Link>
               <Link to="/signup" className="mr-5">
@@ -119,4 +128,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Header;
