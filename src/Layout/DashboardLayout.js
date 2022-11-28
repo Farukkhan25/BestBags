@@ -26,16 +26,16 @@ console.log(role);
         {loading ? (
           <Spinner></Spinner>
         ) : (
-        <>
-          <div>
-            <Sidebar role={role}></Sidebar>
-          </div>
-          <div className="flex-1 md:ml-64">
-            <div className="p-4">
-              <Outlet />
+          <>
+            <div>
+              <Sidebar role={role}></Sidebar>
             </div>
-          </div>
-        </>
+            <div className="flex-1 md:ml-64">
+              <div className="p-4">
+                <Outlet />
+              </div>
+            </div>
+          </>
         )}
       </div>
     );

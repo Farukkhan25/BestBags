@@ -1,19 +1,31 @@
-import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   ArrowRightOnRectangleIcon,
   Bars3Icon,
 } from "@heroicons/react/24/solid";
-import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-import PrimaryButton from '../Button/PrimaryButton';
-import UserMenu from './UserMenu';
-import AdminMenu from './AdminMenu';
-import SellerMenu from './SellerMenu';
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import PrimaryButton from "../Button/PrimaryButton";
+import UserMenu from "./UserMenu";
+import AdminMenu from "./AdminMenu";
+import SellerMenu from "./SellerMenu";
 
 const Sidebar = ({ role, loading }) => {
   const { user, logout } = useContext(AuthContext);
   const [isActive, setActive] = useState("false");
-  console.log(role);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+  const handleLogout = () => {
+    logout()
+      .then(() => {
+        navigate(from, { replace: true });
+        
+      })
+      .catch((error) => console.log(error));
+  };
+
   // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive);
@@ -37,14 +49,14 @@ const Sidebar = ({ role, loading }) => {
       </div>
       {/* Sidebar */}
       <div
-        className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-gray-100 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
+        className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-gray-100 w-64 space-y-6 py-2 absolute inset-y-0 left-0 transform ${
           isActive && "-translate-x-full"
         }  md:translate-x-0  transition duration-200 ease-in-out`}
       >
         <div>
           {/* Branding & Profile Info */}
           <div>
-            <h2 className="text-3xl cursor-pointer font-semibold text-center text-blue-800 ">
+            <h2 className="text-3xl cursor-pointer font-semibold text-center text-blue-800 bg-orange-300 py-2">
               <Link to="/"> BestBags</Link>
             </h2>
             <div className="flex flex-col items-center mt-6 -mx-2">
@@ -86,17 +98,18 @@ const Sidebar = ({ role, loading }) => {
           </div>
         </div>
 
-        <div>
+        {/* <div>
           <hr />
           <PrimaryButton
             handler={logout}
+            // onClick={handleLogout}
             classes="flex block w-full rounded-full items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform"
           >
             <ArrowRightOnRectangleIcon className="w-5 h-5" />
 
             <span className="mx-4 font-medium">Logout</span>
           </PrimaryButton>
-        </div>
+        </div> */}
       </div>
     </>
   );

@@ -1,7 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
+import AllBuyers from "../../Pages/Dashboard/AdminMenu/AllBuyers";
+import AllSellers from "../../Pages/Dashboard/AdminMenu/AllSellers";
+import ReportedItems from "../../Pages/Dashboard/AdminMenu/ReportedItems";
 import MyBooking from "../../Pages/Dashboard/MyBooking";
+import AddProduct from "../../Pages/Dashboard/SellerMenuItems/AddProduct";
+import MyBuyers from "../../Pages/Dashboard/SellerMenuItems/MyBuyers";
+import MyProducts from "../../Pages/Dashboard/SellerMenuItems/MyProducts";
 import Welcome from "../../Pages/Dashboard/Welcome";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 
@@ -52,6 +58,30 @@ const router = createBrowserRouter([
       {
         path: "my-orders",
         element: <MyBooking></MyBooking>,
+      },
+      {
+        path: "my-buyers",
+        element: <MyBuyers></MyBuyers>,
+      },
+      {
+        path: "add-product",
+        element: <AddProduct></AddProduct>,
+      },
+      {
+        path: "my-products",
+        element: <MyProducts></MyProducts>,
+      },
+      {
+        path: "all-sellers",
+        element: <AllSellers></AllSellers>,
+      },
+      {
+        path: "all-buyers",
+        element: <AllBuyers></AllBuyers>,
+      },
+      {
+        path: "reported-items",
+        element: <ReportedItems></ReportedItems>,
       },
     ],
   },

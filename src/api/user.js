@@ -17,6 +17,13 @@ export const getAllUsers = async () => {
   const users = await res.json();
   return users;
 };
+// get All seller
+export const getAllSellers = async () => {
+  const url = `http://localhost:8000/allSellers`;
+  const res = await fetch(url);
+  const users = await res.json();
+  return users;
+};
 
 // post user data
 // export const addUser = async userData => {

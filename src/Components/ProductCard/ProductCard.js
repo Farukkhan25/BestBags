@@ -95,6 +95,7 @@ const ProductCard = ({ productInfo, setConfirmProduct }) => {
               </p>
             </div>
           </div>
+          
           <div className="card-actions justify-end">
             {/* <PrimaryButton> */}
             <label
