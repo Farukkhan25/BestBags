@@ -4,10 +4,6 @@ import SmallSpinner from '../Spinner/SmallSpinner';
 
 const AddProductForm = ({
   handleSubmit,
-  arrivalDate,
-  setArrivalDate,
-  departureDate,
-  setDepartureDate,
   loading,
   handleImageChange,
   preview,
@@ -45,7 +41,7 @@ const AddProductForm = ({
                   <input
                     type="radio"
                     name="category"
-                    value="backpack"
+                    value="63805c00bbbef22e0c0fe462"
                     className="radio checked:bg-red-500"
                     defaultChecked
                   />
@@ -57,7 +53,7 @@ const AddProductForm = ({
                   <input
                     type="radio"
                     name="category"
-                    value="briefcase"
+                    value="63805c00bbbef22e0c0fe463"
                     className="radio checked:bg-blue-500"
                     // checked
                   />
@@ -69,7 +65,7 @@ const AddProductForm = ({
                   <input
                     type="radio"
                     name="category"
-                    value="handbags"
+                    value="63805c00bbbef22e0c0fe464"
                     className="radio checked:bg-green-500"
                     // checked
                   />
@@ -132,37 +128,36 @@ const AddProductForm = ({
                   required
                 />
               </div>
-            <div className="flex justify-between gap-2">
-              <div className="space-y-1 text-sm">
-                <label htmlFor="resalePrice" className="block text-gray-600">
-                  Resale Price
-                </label>
-                <input
-                  className="w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50"
-                  name="resalePrice"
-                  id="resalePrice"
-                  type="number"
-                  placeholder="Resale Price"
-                  required
-                />
-              </div>
+              <div className="flex justify-between gap-2">
+                <div className="space-y-1 text-sm">
+                  <label htmlFor="resalePrice" className="block text-gray-600">
+                    Resale Price
+                  </label>
+                  <input
+                    className="w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50"
+                    name="resalePrice"
+                    id="resalePrice"
+                    type="number"
+                    placeholder="Resale Price"
+                    required
+                  />
+                </div>
 
-              <div className="space-y-1 text-sm">
-                <label htmlFor="purchaseYear" className="block text-gray-600">
-                  Purchase Year
-                </label>
-                <input
-                  className="w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50"
-                  name="purchaseYear"
-                  id="purchaseYear"
-                  type="number"
-                  placeholder="Purchase Year"
-                  required
-                />
+                <div className="space-y-1 text-sm">
+                  <label htmlFor="purchaseYear" className="block text-gray-600">
+                    Purchase Year
+                  </label>
+                  <input
+                    className="w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50"
+                    name="purchaseYear"
+                    id="purchaseYear"
+                    type="number"
+                    placeholder="Purchase Year"
+                    required
+                  />
+                </div>
               </div>
             </div>
-            </div>
-
 
             <div className="flex justify-between gap-2">
               <div className="space-y-1 text-sm">
@@ -267,8 +262,6 @@ const AddProductForm = ({
                 name="Description"
               ></textarea>
             </div>
-
-            
 
             <button
               type="submit"

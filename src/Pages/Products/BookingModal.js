@@ -6,40 +6,40 @@ import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 const BookingModal = ({ confirmProduct }) => {
   const { productName, resalePrice, sellerEmail, image } = confirmProduct;
 
-    const { user } = useContext(AuthContext);
-    
-    // const [bookingData, setBookingData] = useState({
-         
-    // });  
-    
-    const handleBooking = (event) => {
-     event.preventDefault();
-        const form = event.target;
-        const phone = form.phone.value;
-        const location = form.location.value;
+  const { user } = useContext(AuthContext);
 
-        const bookingData = {
-          name: user.displayName,
-          buyerEmail: user.email,
-          // buyerImage: user.photoURL,
-          phone,
-          location,
-          productName,
-          resalePrice,
-          sellerEmail,
-          image,
-        };
-   console.log(bookingData);
-   saveBookings(bookingData)
-     .then((data) => {
-       console.log(data);
-         toast.success("Booking success!");
-        
-     })
-     .catch((error) => {
-       toast.error(error.message);
-     });
- };
+  const uname = user.displayName;
+  // const [bookingData, setBookingData] = useState({
+
+  // });
+
+  const handleBooking = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const phone = form.phone.value;
+    const location = form.location.value;
+
+    const bookingData = {
+      name: user.displayName,
+      buyerEmail: user.email,
+      // buyerImage: user.photoURL,
+      phone,
+      location,
+      productName,
+      resalePrice,
+      sellerEmail,
+      image,
+    };
+    console.log(bookingData.name);
+    saveBookings(bookingData)
+      .then((data) => {
+        console.log(data);
+        toast.success("Booking success!");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
 
   return (
     <>

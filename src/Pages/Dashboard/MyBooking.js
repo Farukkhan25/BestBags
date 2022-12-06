@@ -27,6 +27,26 @@ const MyBookings = () => {
 
   console.log(bookings);
 
+  const handleDelete = (id) => {
+    const proceed = window.confirm(
+      "Are you sure, you want to Cencel this order?"
+    );
+    if (proceed) {
+      fetch(`https://bestbags-server.vercel.app/mybookings/${id}`, {
+        method: "DELETE",
+        //   headers: {
+        //     authorization: `Bearer ${localStorage.getItem("bestbags-token")}`,
+        //   },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          toast("Order cancelled!");
+          const remaining = bookings.filter((pro) => pro._id !== id);
+          setBookings(remaining);
+        });
+    }
+  };
+
   return (
     <>
       {loading ? (
@@ -73,7 +93,11 @@ const MyBookings = () => {
                   </thead>
                   <tbody>
                     {bookings.map((booking) => (
-                      <Table booking={booking} key={booking._id}></Table>
+                      <Table
+                        booking={booking}
+                        key={booking._id}
+                        handleDelete={handleDelete}
+                      ></Table>
                     ))}
                   </tbody>
                 </table>

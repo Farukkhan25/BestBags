@@ -18,9 +18,21 @@ const AllSellers = () => {
       });
   }, []);
 
-  console.log(users);
+  // console.log(users);
 
-  const handleVerify = (id) => {};
+  const handleVerify = async(email) => {
+    const res = await fetch(`https://bestbags-server.vercel.app/usersVerify/${email}`, {
+      method: "PUT",
+      header: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(email),
+    });
+    const data = await res.json();
+    toast('Seller Verification Complete!');
+    console.log(data);
+    return data;
+  };
 
   const handleDelete = (id) => {
     const proceed = window.confirm(

@@ -1,6 +1,6 @@
 ## Introduction
 
-A virtual Used-Products(Bags) website using Node js, Express js, and Mongodb express.
+A virtual Used-Products(Bags) website using React, Node js, Express js, and Mongodb.
 
 ## Live Site
 

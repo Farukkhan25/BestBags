@@ -12,6 +12,7 @@ const PaymentForm = ({ booking }) => {
   const elements = useElements();
   const { productName, resalePrice, buyerEmail, location, _id, name } = booking;
   console.log(resalePrice);
+
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     fetch("https://bestbags-server.vercel.app/create-payment-intent", {
@@ -22,9 +23,15 @@ const PaymentForm = ({ booking }) => {
       },
       body: JSON.stringify({ resalePrice }),
     })
-      .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
+      .then((res) => res.json()) 
+      .then((data) => {
+        if (data?.clientSecret) {
+          setClientSecret(data.clientSecret);
+        }
+      });
   }, [resalePrice]);
+
+  console.log(resalePrice);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -44,14 +51,14 @@ const PaymentForm = ({ booking }) => {
     });
 
     if (error) {
-      console.log(error);
+      // console.log(error);
       setCardError(error.message);
     } else {
       setCardError("");
     }
     setSuccess("");
     setProcessing(true);
-    const { paymentIntent, error: confirmError } =
+    const { paymentIntent, error: intentError } =
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: card,
@@ -62,8 +69,8 @@ const PaymentForm = ({ booking }) => {
         },
       });
 
-    if (confirmError) {
-      setCardError(confirmError.message);
+    if (intentError) {
+      setCardError(intentError?.message);
       return;
     }
     if (paymentIntent.status === "succeeded") {

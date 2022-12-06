@@ -12,7 +12,7 @@ export const addProduct = async (productData) => {
 };
 
 export const saveAdvertise = async (advertise) => {
-  const url = "http://localhost:8000/advertises";
+  const url = "https://bestbags-server.vercel.app/advertises";
 
   const response = await fetch(url, {
     method: "POST",
@@ -24,4 +24,12 @@ export const saveAdvertise = async (advertise) => {
 
   const data = await response.json();
   return data;
+};
+
+// get All products
+export const getAllProducts = async () => {
+  const url = "https://bestbags-server.vercel.app/allProducts";
+  const res = await fetch(url);
+  const users = await res.json();
+  return users;
 };

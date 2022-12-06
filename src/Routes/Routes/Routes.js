@@ -17,6 +17,7 @@ import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Products from "../../Pages/Products/Products";
 import SignUp from "../../Pages/SignUp/SignUp";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -52,9 +53,9 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: (
-      // <PrivateRoute>
-      <DashboardLayout></DashboardLayout>
-      // </PrivateRoute>
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoute>
     ),
     errorElement: <ErrorPage></ErrorPage>,
     children: [
@@ -95,6 +96,12 @@ const router = createBrowserRouter([
         element: <Payment></Payment>,
         loader: ({ params }) =>
           fetch(`https://bestbags-server.vercel.app/bookings/${params.id}`),
+      },
+      {
+        path: "products",
+        element: <Products></Products>,
+        loader: ({ params }) =>
+          fetch("https://bestbags-server.vercel.app/products"),
       },
     ],
   },

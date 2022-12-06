@@ -6,9 +6,7 @@ import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import PrimaryButton from "../../../Components/Button/PrimaryButton";
 
 const Header = () => {
-  const { user, logout
-} = useContext(AuthContext);
-  // const logout = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleLogout = () => {
@@ -41,11 +39,11 @@ const Header = () => {
             to="/blog"
             className=" hover:text-green-600 text-lg font-bold text-sky-700"
           >
-            <span >Blogs</span>
+            <span>Blogs</span>
           </Link>
           {user?.email ? (
             <>
-              <div className="relative inline-block ">
+              <div className="relative inline-block ml-4">
                 <button
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                   className="relative z-10 block p-2 text-gray-700 bg-white border border-sky-500 rounded-lg focus:border-blue-500 focus:ring-opacity-40  focus:ring-blue-300  focus:ring  focus:outline-none"

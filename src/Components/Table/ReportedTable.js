@@ -1,13 +1,11 @@
 import React from 'react';
 
-const AllSellersTable = ({ user, handleDelete, handleVerify }) => {
-  const { email, role, name, _id } = user;
-  console.log(email);
-    return (
-        <>
-        { role === "seller" ?
-    <tr key={user._id}>
-      {/* <td className="px-5 py-5 border-b border-gray-200 bg-sky-200 md:text-xl text-sm">
+const ReportedTable = ({ product, handleDelete }) => {
+  const { productName, resalePrice, image, _id, sellerName, sellerEmail } =
+    product;
+  return (
+    <tr key={product._id}>
+      <td className="px-5 py-5 border-b border-gray-200 bg-sky-200 md:text-xl text-sm">
         <div className="flex items-center">
           <div className="flex-shrink-0">
             <div className="block relative">
@@ -19,24 +17,17 @@ const AllSellersTable = ({ user, handleDelete, handleVerify }) => {
             </div>
           </div>
         </div>
-      </td> */}
+      </td>
+      <td className="px-5 py-5 border-b border-gray-200 bg-sky-200 md:text-xl text-sm">
+        <p className="text-gray-900 whitespace-no-wrap">{productName}</p>
+      </td>
+      <td className="px-5 py-5 border-b border-gray-200 bg-sky-200 md:text-xl text-sm">
+        <p className="text-gray-900 whitespace-no-wrap">{sellerName}</p>
+      </td>
+      <td className="px-5 py-5 border-b border-gray-200 bg-sky-200 md:text-xl text-sm">
+        <p className="text-gray-900 whitespace-no-wrap">{sellerEmail}</p>
+      </td>
 
-      <td className="px-5 py-5 border-b border-gray-200 bg-sky-200 md:text-xl text-sm">
-        <p className="text-gray-900 whitespace-no-wrap">{name}</p>
-      </td>
-      <td className="px-5 py-5 border-b border-gray-200 bg-sky-200 md:text-xl text-sm">
-        <p className="text-gray-900 whitespace-no-wrap">{email}</p>
-      </td>
-
-      <td className="px-5 py-5 border-b border-gray-200 bg-sky-200 md:text-xl text-sm">
-        <label
-          onClick={() => handleVerify(email)}
-          htmlFor="confirmation-modal"
-          className="btn btn-sm btn-error"
-        >
-          Verify
-        </label>
-      </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-sky-200 md:text-xl text-sm">
         <label
           onClick={() => handleDelete(_id)}
@@ -46,12 +37,8 @@ const AllSellersTable = ({ user, handleDelete, handleVerify }) => {
           Delete
         </label>
       </td>
-            </tr>
-            :
-            ""
-        }
-        </>
+    </tr>
   );
 };
 
-export default AllSellersTable;
+export default ReportedTable;

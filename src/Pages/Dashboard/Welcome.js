@@ -8,7 +8,7 @@ const Welcome = () => {
   const [role, setRole] = useState(null);
   console.log(role);
   const [loading, setLoading] = useState(true);
-  console.log(role);
+  
   useEffect(() => {
     getUserRole(user?.email)
       .then((data) => {

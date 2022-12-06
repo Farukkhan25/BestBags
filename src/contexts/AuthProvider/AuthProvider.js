@@ -29,13 +29,17 @@ const AuthProvider = ({ children }) => {
   };
 
   //   2. Update Name
-  const updateUserProfile = (name, photo) => {
-    setLoading(true);
-    return updateProfile(auth.currentUser, {
-      displayName: name,
-      photoURL: photo,
-    });
-  };
+  // const updateUserProfile = (name, photo) => {
+  //   setLoading(true);
+  //   return updateProfile(auth.currentUser, {
+  //     displayName: name,
+  //     photoURL: photo,
+  //   });
+  // };
+
+   const updateUser = (userInfo) => {
+     return updateProfile(auth.currentUser, userInfo);
+   };
 
   //   3. Email Verify
   const verifyEmail = () => {
@@ -88,7 +92,8 @@ const AuthProvider = ({ children }) => {
   const authInfo = {
     user,
     createUser,
-    updateUserProfile,
+    updateUser,
+    // updateUserProfile,
     verifyEmail,
     signInWithGoogle,
     logout,

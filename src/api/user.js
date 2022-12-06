@@ -11,7 +11,7 @@ export const getUserRole = async (email) => {
 
 // get All user
 export const getAllUsers = async () => {
-  const url = `${process.env.REACT_APP_API_URL}/users`;
+  const url = `https://bestbags-server.vercel.app/users`;
   const res = await fetch(url);
   const users = await res.json();
   return users;
@@ -25,19 +25,6 @@ export const getAllSellers = async () => {
 };
 
 // post user data
-// export const addUser = async userData => {
-//     const url = `https://bestbags-server.vercel.app/users?${userData.email}`;
-//     const res = await fetch(url, {
-//         method: 'PUT',
-//         headers: {
-//             'content-type': 'application/json'
-//         },
-//         body: JSON.stringify(userData)
-//     })
-//     const data = await res.json();
-//     return data;
-// }
-
 export const addUser = async (userData) => {
   const url = "https://bestbags-server.vercel.app/users";
   const res = await fetch(url, {

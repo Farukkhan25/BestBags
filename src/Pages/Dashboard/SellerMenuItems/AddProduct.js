@@ -16,36 +16,37 @@ const AddProduct = () => {
   const [departureDate, setDepartureDate] = useState(
     new Date(arrivalDate.getTime() + 24 * 60 * 60 * 1000)
   );
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const productName = event.target.productName.value;
-        const category = event.target.category.value;
-        const condition = event.target.condition.value;
-        const Description = event.target.Description.value;
-        const sellerLocation = event.target.sellerLocation.value;
-        const from = arrivalDate;
-        const To = departureDate;
-        const orginalPrice = event.target.orginalPrice.value;
-        const resalePrice = event.target.resalePrice.value;
-        const yearsUsed = event.target.yearsUsed.value;
-        const purchaseYear = event.target.purchaseYear.value;
-        const sellerRole = "seller";
-        const time = "30 Nov 2022";
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const productName = event.target.productName.value;
+    const id = event.target.category.value;
+    const condition = event.target.condition.value;
+    const Description = event.target.Description.value;
+    const sellerLocation = event.target.sellerLocation.value;
+    const orginalPrice = event.target.orginalPrice.value;
+    const resalePrice = event.target.resalePrice.value;
+    const yearsUsed = event.target.yearsUsed.value;
+    const purchaseYear = event.target.purchaseYear.value;
+    const sellerRole = "seller";
+    const time = "2 Dec 2022";
+    
     const image = event.target.image.files[0];
     setLoading(true);
     getImageUrl(image)
       .then((data) => {
         const productData = {
           productName,
-          category,
+          category:
+      id === "63805c00bbbef22e0c0fe462" ? "backpack" : id === "63805c00bbbef22e0c0fe463" ? "briefcase" : "handbags",
+  
           condition,
           Description,
           sellerLocation,        
           orginalPrice,
-          resalePrice:"$"+resalePrice,
+          resalePrice:resalePrice,
           purchaseYear,
           yearsUsed,
-          id: "63805c00bbbef22e0c0fe462",         
+          id,         
           image: data,
           sellerName: user?.displayName,
           sellerEmail: user?.email,

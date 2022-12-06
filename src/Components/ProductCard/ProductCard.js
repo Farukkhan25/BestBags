@@ -1,7 +1,8 @@
+import { CheckBadgeIcon } from "@heroicons/react/24/solid";
 import React from "react";
 import PrimaryButton from "../Button/PrimaryButton";
 
-const ProductCard = ({ productInfo, setConfirmProduct }) => {
+const ProductCard = ({ productInfo, setConfirmProduct, handleReport }) => {
   const {
     _id,
     productName,
@@ -18,6 +19,7 @@ const ProductCard = ({ productInfo, setConfirmProduct }) => {
     Description,
     postedTime,
     sellerEmail,
+    verify,
   } = productInfo;
 
   return (
@@ -32,20 +34,26 @@ const ProductCard = ({ productInfo, setConfirmProduct }) => {
           <h3 className="text-red-800 text-xl text-bolder">
             USD {resalePrice}
           </h3>
-          <h5 className="text-purple-800 text-[15px] mb-3">
-            <span className="text-green-800">Seller:</span> {sellerName}
-          </h5>
+          <div className="flex">
+            <h5 className="text-purple-800 text-[15px] mb-3">
+              <span className="text-green-800">Seller:</span> {sellerName}
+            </h5>
+            {verify ?
+              <CheckBadgeIcon className="w-5 h-5 text-blue-700 pl-1" /> :
+              ''
+            }
+          </div>
           <p className="text-sky-700 text-bold text-[17px]">{Description}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 my-3">
             <div className="bg-purple-100 p-2 md:pl-6 text-[16px]">
               <p>
                 {" "}
                 <span className="text-bold  text-red-600">Orginal Price: </span>
-                {orginalPrice}
+                ${orginalPrice}
               </p>
               <p>
                 {" "}
-                <span className="text-bold  text-red-600">Resale Price: </span>
+                <span className="text-bold  text-red-600">Resale Price: </span>$
                 {resalePrice}
               </p>
               <p>
@@ -95,17 +103,28 @@ const ProductCard = ({ productInfo, setConfirmProduct }) => {
               </p>
             </div>
           </div>
-          
-          <div className="card-actions justify-end">
-            {/* <PrimaryButton> */}
-            <label
-              htmlFor="booking-modal"
-              className="px-2 rounded-lg hover:text-gray-100 hover:bg-purple-500 text-white bg-gradient-to-r from-blue-500 to-sky-500 text-white btn"
-              onClick={() => setConfirmProduct(productInfo)}
-            >
-              Book now
-            </label>
-            {/* </PrimaryButton> */}
+
+          <div className="flex md:flex-row justify-between items-center">
+            <div>
+              <label
+                onClick={() => handleReport(_id)}
+                htmlFor="confirmation-modal"
+                className="btn btn-sm btn-error"
+              >
+                Report to Admin
+              </label>
+            </div>
+            <div className="card-actions justify-end">
+              {/* <PrimaryButton> */}
+              <label
+                htmlFor="booking-modal"
+                className="px-2 rounded-lg hover:text-gray-100 hover:bg-purple-500 text-white bg-gradient-to-r from-blue-500 to-sky-500 text-white btn"
+                onClick={() => setConfirmProduct(productInfo)}
+              >
+                Book now
+              </label>
+              {/* </PrimaryButton> */}
+            </div>
           </div>
         </div>
       </div>

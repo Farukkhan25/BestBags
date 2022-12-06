@@ -68,7 +68,8 @@ const Footer = () => {
             </div>
             <p className="description pt-2">Your Best Choice</p>
             <p className="small__text description">
-              You need unique your identity with attractive way of selective fashion.
+              You need unique your identity with attractive way of selective
+              fashion.
             </p>
           </div>
 

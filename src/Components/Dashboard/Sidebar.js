@@ -98,18 +98,19 @@ const Sidebar = ({ role, loading }) => {
           </div>
         </div>
 
-        {/* <div>
+        <div>
           <hr />
           <PrimaryButton
             handler={logout}
             // onClick={handleLogout}
-            classes="flex block w-full rounded-full items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform"
+            classes="flex block w-full rounded-full items-center justify-center mx-auto px-2 py-2 mt-5 text-gray-600 transition-colors duration-300 transform"
           >
-            <ArrowRightOnRectangleIcon className="w-5 h-5" />
+            <ArrowRightOnRectangleIcon className="w-5 h-5 text-yellow-500 font-extrabold" />
 
-            <span className="mx-4 font-medium">Logout</span>
+            <span className="mx-3 font-medium text-gray-300 text-xl">Logout</span>
           </PrimaryButton>
-        </div> */}
+        </div>
+
       </div>
     </>
   );

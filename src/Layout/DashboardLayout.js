@@ -8,9 +8,8 @@ import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 const DashboardLayout = () => {
     const { user } = useContext(AuthContext);
     const [role, setRole] = useState(null);
-    console.log(role);
+    // console.log(role);
     const [loading, setLoading] = useState(true);
-console.log(role);
        useEffect(() => {
          getUserRole(user?.email)
            .then((data) => {
