@@ -1,12 +1,19 @@
 import { data } from "autoprefixer";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { addUser } from "../../api/user";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const SignUp = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const { createUser, updateUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -34,15 +41,19 @@ const SignUp = () => {
           .then(() => {
             addUser(addNewUser);
           })
-          .catch((err) => console.log(err));
-        //  console.log(userInfo);
-        console.log(user);
-        form.reset();
-
-        toast.success("Registration successful !");
-        navigate(from, { replace: true });
-      })
-      .catch((err) => console.error(err));
+          // .catch((err) => console.log(err));
+          //  console.log(userInfo);
+          console.log(user);
+          form.reset();
+          
+          toast.success("Registration successful !");
+          navigate(from, { replace: true });
+        })
+        .catch((error) => {
+          console.log(error.message);
+          setError(error.message);
+        });
+      // .catch((err) => console.error(err));
   };
 
   // useTitle("SignUp");
@@ -71,6 +82,9 @@ const SignUp = () => {
                 placeholder="Your Name"
                 className="input input-bordered"
               />
+              {errors.name && (
+                <p className="text-red-500">{errors.name.message}</p>
+              )}
             </div>
             <div className="form-control">
               <label className="label">
@@ -83,6 +97,9 @@ const SignUp = () => {
                 className="input input-bordered"
                 required
               />
+              {errors.email && (
+                <p className="text-red-500">{errors.email.message}</p>
+              )}
             </div>
             <div className="form-control">
               <label className="label">
@@ -95,6 +112,9 @@ const SignUp = () => {
                 className="input input-bordered"
                 required
               />
+              {errors.password && (
+                <p className="text-red-500">{errors.password.message}</p>
+              )}
             </div>
             <div className="form-control">
               <label className="label cursor-pointer">
@@ -127,6 +147,7 @@ const SignUp = () => {
                 value="Sign Up"
               />
             </div>
+            <div>{error && <p className="text-red-600">{error}</p>}</div>
           </form>
           <p className="text-center">
             Already have an account?{" "}
