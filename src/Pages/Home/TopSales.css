@@ -1,0 +1,17 @@
+.porfolio-slider{
+   margin-top: 3rem;
+   width: 100%;
+}
+.porfolio-slider .swiper-slide{
+   width: 20rem;
+}
+
+@media screen and (max-width: 480px) {
+   
+   .porfolio-slider{
+      margin-top: 0;
+      transform: scale(0.6);
+      left: -2rem;     
+      width: 26rem;
+   }
+}

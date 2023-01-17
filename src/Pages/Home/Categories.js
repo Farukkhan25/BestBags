@@ -1,8 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { Link } from 'react-router-dom';
-// import cate1 from "../../assets/bag_images/banner-backpacks.jpg";
-// import cate2 from "../../assets/bag_images/banner-briefcases.jpg";
-// import cate3 from "../../assets/bag_images/banner-large-handbags.jpg";
 import CategoryCard from "../../Components/CategoryCard/CategoryCard";
 
 const Categories = () => {
